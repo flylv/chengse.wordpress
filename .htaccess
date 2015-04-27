@@ -1,0 +1,31 @@
+# BEGIN iThemes Security
+#Quick ban IP. Will be updated on next formal rules save.
+SetEnvIF REMOTE_ADDR "^194\.90\.160\.133$" DenyAccess
+SetEnvIF X-FORWARDED-FOR "^194\.90\.160\.133$" DenyAccess
+SetEnvIF X-CLUSTER-CLIENT-IP "^194\.90\.160\.133$" DenyAccess
+order allow,deny
+deny from env=DenyAccess
+deny from 194.90.160.133
+allow from all
+#Quick ban IP. Will be updated on next formal rules save.
+SetEnvIF REMOTE_ADDR "^46\.25\.29\.221$" DenyAccess
+SetEnvIF X-FORWARDED-FOR "^46\.25\.29\.221$" DenyAccess
+SetEnvIF X-CLUSTER-CLIENT-IP "^46\.25\.29\.221$" DenyAccess
+order allow,deny
+deny from env=DenyAccess
+deny from 46.25.29.221
+allow from all
+# END iThemes Security
+
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
